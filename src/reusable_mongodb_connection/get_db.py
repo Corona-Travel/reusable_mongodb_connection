@@ -4,7 +4,7 @@ from pymongo import MongoClient
 from reusable_mongodb_connection.types import MongoDBURI
 
 
-def get_db(url: MongoDBURI, database: Optional[str]):
+def get_db(url: MongoDBURI, database: Optional[str]=None):
     # check that connected
     try:
         client = MongoClient(url, serverSelectionTimeoutMS = 5000)
