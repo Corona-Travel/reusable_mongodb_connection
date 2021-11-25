@@ -14,12 +14,12 @@ try:
 except ImportError:
     fastapi = None
 
-get_facts_collection = None
+get_collection = None
 
 if fastapi is not None:
     fastapi: Any
 
-    def get_facts_collection(mongo_url: Any, collection_name: str):
+    def get_collection(mongo_url: Any, collection_name: str):
         try:
             db = get_db(mongo_url)
         except ReusableMongodbConnectionError as e:
