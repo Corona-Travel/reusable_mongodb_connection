@@ -25,7 +25,9 @@ if fastapi is not None:
         except ReusableMongodbConnectionError as e:
             print("Connection to DB was unsuccessful")
             print(f"Exception: {e}")
-            raise fastapi.HTTPException(status_code=500, detail="Connection to DB was unsuccessful")
+            raise fastapi.HTTPException(
+                status_code=500, detail="Connection to DB was unsuccessful"
+            )
 
         if collection_name not in db.list_collection_names():
             print("Collection not found")

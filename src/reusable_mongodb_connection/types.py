@@ -21,4 +21,3 @@ class MongoDBURI(AnyUrl):
         "mongodb",
         "mongodb+srv",
     }
-    

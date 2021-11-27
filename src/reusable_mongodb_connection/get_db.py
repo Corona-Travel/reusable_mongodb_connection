@@ -11,12 +11,14 @@ def get_db(url: MongoDBURI, database: Optional[str] = None):
     # check that connected
     try:
         client = MongoClient(url, serverSelectionTimeoutMS=5000)
-        
+
         # check that connection is available
         client.server_info()
 
         db = client.get_default_database(database)
-        
+
         return db
     except OperationFailure:
-        raise ReusableMongodbConnectionError(f"can't connect to database `{database}` via url `{url}`")
+        raise ReusableMongodbConnectionError(
+            f"can't connect to database `{database}` via url `{url}`"
+        )
