@@ -36,4 +36,4 @@ if fastapi is not None:
                 detail="Collection not found",
             )
 
-        return db.facts
+        return db[collection_name]
