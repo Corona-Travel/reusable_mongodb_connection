@@ -1,6 +1,6 @@
 from typing import Optional
 
-from pymongo import MongoClient
+import pymongo
 from pymongo.errors import OperationFailure
 
 from reusable_mongodb_connection.types import MongoDBURI
@@ -10,7 +10,7 @@ from reusable_mongodb_connection.exceptions import ReusableMongodbConnectionErro
 def get_db(url: MongoDBURI, database: Optional[str] = None):
     # check that connected
     try:
-        client = MongoClient(url, serverSelectionTimeoutMS=5000)
+        client = pymongo.MongoClient(url, serverSelectionTimeoutMS=5000)
 
         # check that connection is available
         client.server_info()
